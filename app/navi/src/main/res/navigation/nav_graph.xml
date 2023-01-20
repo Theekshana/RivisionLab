@@ -20,11 +20,14 @@
         android:label="fragment_second"
         tools:layout="@layout/fragment_second" >
 
-        <argument
+        <!--<argument
             android:name="fname"
             app:argType="string" />
         <argument
             android:name="lname"
-            app:argType="string" />
+            app:argType="string" />-->
+        <argument
+            android:name="user"
+            app:argType="com.example.navi.User" />
     </fragment>
 </navigation>

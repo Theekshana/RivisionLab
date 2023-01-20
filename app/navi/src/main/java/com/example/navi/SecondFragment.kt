@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.fragment.navArgs
+import com.example.navi.databinding.FragmentFirstBinding
+import com.example.navi.databinding.FragmentSecondBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -16,22 +18,34 @@ import androidx.navigation.fragment.navArgs
 class SecondFragment : Fragment() {
 
     val args: SecondFragmentArgs by navArgs()
+    private lateinit var binding: FragmentSecondBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_second, container, false)
+        //val view = inflater.inflate(R.layout.fragment_second, container, false)
 
-        val showName = view.findViewById<TextView>(R.id.result)
+        binding = FragmentSecondBinding.inflate(inflater, container, false)
 
-        val fname = args.fname
+        val showName = args.user.name
+        binding.result.text = "Name $showName"
+
+       /* val showName = view.findViewById<TextView>(R.id.result)
+
+        val showDetails = args.user.name
+       // showName.text = "Name + $showDetails"
+        showName.text = "$showDetails"
+*/
+
+
+        /*val fname = args.fname
         val lname = args.lname
         showName.text = "Name : $fname $lname"
+*/
 
-
-        return view
+        return binding.root
     }
 
 
